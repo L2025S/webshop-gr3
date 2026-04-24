@@ -5,8 +5,8 @@
     <title>Profile</title>
 </head>
 <body>
-<header th:replace="~{fragments/header::header}"></header>
-
+<div th:replace="~{fragments/header::header}"></div>
+<div class="container">
 <h1>Profile</h1>
 <p>Username: <span th:text="${username}"></span></p>
 <!--
@@ -18,12 +18,12 @@
 <form th:action="@{/user/delete}" method="post" onsubmit="return confirmDelete()">
     <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
     <input type="hidden" name ="username" th:value="${username}">
-  <button type="submit">Delete Account</button>
+  <button class="btn" type="submit">Delete Account</button>
 </form>
 
 <form th:action="@{/user/profile/email}" method="post" style="margin-top: 10px;">
     <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
-    <button type="submit" onclick="return confirm('Send your account information to your E-mail?')">
+    <button class="btn" type="submit" onclick="return confirm('Send your account information to your E-mail?')">
         Send Account Information to My Email</button>
  </form>
 
@@ -35,8 +35,8 @@
 
 <br>
 <br>
-
-<footer th:replace="fragments/footer::footer"></footer>
+</div>
+<div th:replace="fragments/footer::footer"></div>
 
 </body>
 </html>
