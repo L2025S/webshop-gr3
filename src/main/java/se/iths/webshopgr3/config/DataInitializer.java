@@ -14,19 +14,11 @@ public class DataInitializer implements CommandLineRunner {
     private final AppUserRepository appUserRepository;
     private final PasswordEncoder passwordEncoder;
 
-    @Value("${admin.password:admin}")
+    @Value("${admin.password:changeThisPassword}")
     private String adminPassword;
 
     @Override
     public void run(String... args) throws Exception {
-        if (!appUserRepository.existsByUsername("user@test.com")) {
-            AppUser user = new AppUser();
-            user.setUsername("user@test.com");
-            user.setPassword(passwordEncoder.encode("user"));
-            user.setConsent(true);
-            user.setRole("USER");
-            appUserRepository.save(user);
-        }
 
         if (!appUserRepository.existsByUsername("admin@test.com")) {
             AppUser admin = new AppUser();
