@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Product</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
 
-<header th:replace="~{fragments/header :: header}"></header>
+<div th:replace="~{fragments/header::header}"></div>
 
+<div class="container">
 <main>
     <h1>Add New Product</h1>
 
@@ -32,12 +34,13 @@
             <input type="text" id="imageUrl" th:field="*{imageUrl}" required/>
             <p th:if="${#fields.hasErrors('imageUrl')}" th:errors="*{imageUrl}">Error</p>
         </div>
-        <button type="submit">Save Product</button>
+        <button class="btn" type="submit">Save Product</button>
         <a th:href="@{/admin}">Cancel</a>
     </form>
 </main>
 
-<footer th:replace="~{fragments/footer :: footer}"></footer>
+</div>
+<div th:replace="~{fragments/footer::footer}"></div>
 
 </body>
 </html>
